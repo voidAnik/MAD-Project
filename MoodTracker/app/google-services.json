@@ -39,7 +39,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:267969304825:android:5ac06b195c6b45d7396a28",
         "android_client_info": {
-          "package_name": "com.example.moodtracker"
+          "package_name": "com.example.moodTracker"
         }
       },
       "oauth_client": [
