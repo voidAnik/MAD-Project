@@ -85,6 +85,8 @@ public class LoginAuthActivity extends AppCompatActivity {
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
+                        .setLogo(R.drawable.ic_baseline_insert_emoticon_24)
+                        .setTheme(R.style.loginTheme)
                         .build(),
                 RC_SIGN_IN);
     }
