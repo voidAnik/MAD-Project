@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="3dp"
+            >
+            <TextView
+                android:id="@+id/tv_ques1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ques"
+                android:backgroundTint="#0c0c26"
+                android:layout_gravity="start"
+                android:padding="15dp"
+                android:textSize="13.5dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/receive_round_box"
+
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/tv_ques2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ques"
+                android:layout_gravity="start"
+                android:layout_marginTop="6dp"
+                android:backgroundTint="#0c0c26"
+                android:padding="15dp"
+                android:textSize="13.5dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/receive_round_box"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/tv_ques3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ques"
+                android:layout_gravity="start"
+                android:backgroundTint="#0c0c26"
+                android:layout_marginTop="6dp"
+                android:padding="15dp"
+                android:textSize="13.5dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/receive_round_box"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/tv_reply"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:padding="15dp"
+                android:textSize="13.5dp"
+                android:backgroundTint="#FFA07A"
+                android:background="@drawable/send_round_box"
+                android:text="Ques"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/reply_round_box"
+        android:layout_marginTop="170dp"
+        android:padding="10dp"
+        android:backgroundTint="#2c2c54"
+        >
+
+        <TextView
+            android:id="@+id/btn_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:background="#2c2c54"
+            android:textColor="#FFA07A"
+            android:textSize="13dp"
+            android:text="button_text ( No Action )" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/reply_round_box"
+            android:backgroundTint="#2c2c54"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/btn_ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:padding="15dp"
+                android:background="#2c2c54"
+                android:textColor="#FFA07A"
+                android:textSize="13dp"
+                />
+            <TextView
+                android:id="@+id/btn_ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:padding="15dp"
+                android:background="#2c2c54"
+                android:textColor="#FFA07A"
+                android:textSize="13dp"
+                />
+            <TextView
+                android:id="@+id/btn_ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:padding="15dp"
+                android:background="#2c2c54"
+                android:textColor="#FFA07A"
+                android:textSize="13dp"
+                />
+            <TextView
+                android:id="@+id/btn_ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text="lallalalala"
+                android:padding="15dp"
+                android:background="#2c2c54"
+                android:textColor="#FFA07A"
+                android:textSize="13dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
