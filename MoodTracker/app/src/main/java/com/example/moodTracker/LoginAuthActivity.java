@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
 //Khan Checking //double checking
-// 
+// 123 check
 public class LoginAuthActivity extends AppCompatActivity {
     List<AuthUI.IdpConfig> providers;
     private static final int RC_SIGN_IN = 163;
