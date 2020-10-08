@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginAuthActivity">
-    
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/wave"
+        android:visibility="gone"/>
     <Button
         android:id="@+id/btn_signOut"
         android:layout_width="wrap_content"
