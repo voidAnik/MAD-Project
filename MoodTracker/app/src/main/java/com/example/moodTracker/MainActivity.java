@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     model model = snapshot.getValue(model.class);
                     quesList.add(model);
+                    //Toast.makeText(MainActivity.this, ""+model.id, Toast.LENGTH_SHORT).show();
                 }
                 adapter.notifyDataSetChanged();
             }
