@@ -10,7 +10,7 @@ public class model {
 
     }
 
-    public model(String q1, String q2, String q3, String btn_ans1, String btn_ans2, String btn_ans3, String btn_ans4, String btn_txt, String id) {
+    /*public model(String q1, String q2, String q3, String btn_ans1, String btn_ans2, String btn_ans3, String btn_ans4, String btn_txt, String id) {
         this.q1 = q1;
         this.q2 = q2;
         this.q3 = q3;
@@ -20,7 +20,7 @@ public class model {
         this.btn_ans4 = btn_ans4;
         this.btn_txt = btn_txt;
         this.id = id;
-    }
+    }*/
 
     public String getId() {
         return id;

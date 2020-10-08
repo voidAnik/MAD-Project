@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-        query1 = FirebaseDatabase.getInstance().getReference("QuesMt");
+        //query1 = FirebaseDatabase.getInstance().getReference("QuesMt");
 
-       // Query q1 = FirebaseDatabase.getInstance().getReference("Ques").orderByChild("id").equalTo("i1");
-        query1.addListenerForSingleValueEvent(valueEventListener);
+        Query q1 = FirebaseDatabase.getInstance().getReference("QuesMt").orderByChild("id").equalTo("i1");
+        q1.addListenerForSingleValueEvent(valueEventListener);
 
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
