@@ -64,32 +64,13 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-<<<<<<< Updated upstream
+
         //query1 = FirebaseDatabase.getInstance().getReference("QuesMt");
 
-        Query q1 = FirebaseDatabase.getInstance().getReference("QuesMt").orderByChild("id").equalTo("i1");
-        q1.addListenerForSingleValueEvent(valueEventListener);
-=======
-        // three dot message animation....
-        /*LazyLoader loader = new LazyLoader(this, 30, 20, ContextCompat.getColor(this, R.color.loader_selected),
-                ContextCompat.getColor(this, R.color.loader_selected),
-                ContextCompat.getColor(this, R.color.loader_selected));
-        loader.setAnimDuration(200);
-        loader.setFirstDelayDuration(50);
-        loader.setSecondDelayDuration(50);
-        loader.setInterpolator(new LinearInterpolator());
-        lazyLoader.addView(loader);
-        final Runnable hideSeekBarRunnable = new Runnable() {
-            @Override
-            public void run() {
-                lazyLoader.setVisibility(View.GONE);
-            }
-        };
-        lazyLoader.setVisibility(View.VISIBLE);
-        lazyLoader.postDelayed(hideSeekBarRunnable, 2000);
-        lazyLoader.removeCallbacks(hideSeekBarRunnable);
-        lazyLoader.postDelayed(hideSeekBarRunnable, 2000);*/
-        // ...end...
+      /*  Query q1 = FirebaseDatabase.getInstance().getReference("QuesMt").orderByChild("id").equalTo("i1");
+        q1.addListenerForSingleValueEvent(valueEventListener);*/
+
+
 
         /*Query q1 = FirebaseDatabase.getInstance()
                 .getReference("QuesMt")
@@ -123,7 +104,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
->>>>>>> Stashed changes
+
 
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
