@@ -18,8 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
-//Khan Checking //double checking
-// 123 check 123 check
 public class LoginAuthActivity extends AppCompatActivity {
     List<AuthUI.IdpConfig> providers;
     private static final int RC_SIGN_IN = 163;
@@ -120,7 +118,7 @@ public class LoginAuthActivity extends AppCompatActivity {
         intent.putExtra("email", user.getEmail().toString());
         //intent.putExtra("image", user.getPhotoUrl());
         intent.putExtra("contact", user.getPhoneNumber().toString());
-       // intent.setData(user.getPhotoUrl());
+        intent.setData(user.getPhotoUrl());
         startActivity(intent);
         /*assert user != null;
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
