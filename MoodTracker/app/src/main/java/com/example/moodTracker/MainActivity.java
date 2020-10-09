@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity  {
         //lazyLoader = findViewById(R.id.three_dot);
         rcview = (RecyclerView)findViewById(R.id.rv);
         //tv_signin = findViewById(R.id.tv_SignIn);
-        rcview.setLayoutManager(new LinearLayoutManager(this));
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        rcview.setLayoutManager(linearLayoutManager);
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);
         rcview.setAdapter(adapter);

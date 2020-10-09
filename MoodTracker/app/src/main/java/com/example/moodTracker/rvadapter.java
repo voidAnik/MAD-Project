@@ -1,5 +1,6 @@
 package com.example.moodTracker;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,10 +20,12 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
     private List<model> quesList;
     private int next = 0;
     int limit =1;
+    RecyclerView recyclerView;
 
     public rvadapter(Context mCtx, List<model> quesList) {
         this.mCtx = mCtx;
         this.quesList = quesList;
+        recyclerView = ((Activity) this.mCtx).findViewById(R.id.rv);
     }
     rvadapter(){
     }
@@ -42,7 +46,6 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
         model model = quesList.get(position);
-
         holder.tv_ques1.setText(model.q1);
         if (TextUtils.isEmpty(holder.tv_ques1.getText().toString()))
             holder.tv_ques1.setVisibility(View.GONE);
@@ -147,14 +150,13 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             }
         });
 
+        // Automatic scrolling to bottom
+        recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+
     }
 
     private void hideReplyButtons(myviewholder holder) {
-        holder.btn_ans1.setVisibility(View.GONE);
-        holder.btn_ans2.setVisibility(View.GONE);
-        holder.btn_ans3.setVisibility(View.GONE);
-        holder.btn_ans4.setVisibility(View.GONE);
-        holder.btn_txt.setVisibility(View.GONE);
+       holder.answer_layout.setVisibility(View.GONE);
     }
 
     @Override
@@ -171,6 +173,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         TextView tv_ques1, tv_ques2, tv_ques3, tv_reply;
         TextView btn_txt, btn_ans1, btn_ans2, btn_ans3, btn_ans4;
         Button btn_sign;
+        LinearLayout answer_layout;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
@@ -185,6 +188,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             btn_ans3 = itemView.findViewById(R.id.btn_ans3);
             btn_ans4 = itemView.findViewById(R.id.btn_ans4);
             btn_sign = itemView.findViewById(R.id.signIn);
+            answer_layout = itemView.findViewById(R.id.answer_selection_layout);
         }
     }
 }
