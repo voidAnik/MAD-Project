@@ -172,9 +172,7 @@ public class UserProfileActivity extends AppCompatActivity {
                         .setValue(addUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-
-                        }else {
+                        if(!task.isSuccessful()){
                             Toast.makeText(UserProfileActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
