@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,11 +73,9 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     limit += 1;
                     hideReplyButtons(holder);
-                    next = 1;
-                    /*Intent nxtIntent = new Intent(mCtx, MainActivity.class);
-                    //nxtIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    nxtIntent.putExtra("value",next);
-                    mCtx.startActivity(nxtIntent);*/
+                    if(position == quesList.size()-1){
+                        holder.btn_sign.setVisibility(View.VISIBLE);
+                    }
                 }
             });
 
@@ -93,7 +92,9 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
                     limit += 1;
-                    next = 1;
+                    if(position == quesList.size()-1){
+                        holder.btn_sign.setVisibility(View.VISIBLE);
+                    }
                 }
             });
 
@@ -109,6 +110,9 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
                     limit += 1;
+                    if(position == quesList.size()-1){
+                        holder.btn_sign.setVisibility(View.VISIBLE);
+                    }
                 }
             });
 
@@ -124,6 +128,9 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
                     limit += 1;
+                    if(position == quesList.size()-1){
+                        holder.btn_sign.setVisibility(View.VISIBLE);
+                    }
                 }
             });
 
@@ -132,6 +139,14 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             holder.btn_txt.setVisibility(View.GONE);
         else
             holder.btn_txt.setVisibility(View.VISIBLE);
+
+        holder.btn_sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCtx.startActivity(new Intent(mCtx,LoginAuthActivity.class));
+            }
+        });
+
     }
 
     private void hideReplyButtons(myviewholder holder) {
@@ -139,6 +154,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         holder.btn_ans2.setVisibility(View.GONE);
         holder.btn_ans3.setVisibility(View.GONE);
         holder.btn_ans4.setVisibility(View.GONE);
+        holder.btn_txt.setVisibility(View.GONE);
     }
 
     @Override
@@ -154,6 +170,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
         TextView tv_ques1, tv_ques2, tv_ques3, tv_reply;
         TextView btn_txt, btn_ans1, btn_ans2, btn_ans3, btn_ans4;
+        Button btn_sign;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
@@ -167,7 +184,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             btn_ans2 = itemView.findViewById(R.id.btn_ans2);
             btn_ans3 = itemView.findViewById(R.id.btn_ans3);
             btn_ans4 = itemView.findViewById(R.id.btn_ans4);
-
+            btn_sign = itemView.findViewById(R.id.signIn);
         }
     }
 }

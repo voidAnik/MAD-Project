@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity  {
 
         //lazyLoader = findViewById(R.id.three_dot);
         rcview = (RecyclerView)findViewById(R.id.rv);
-        tv_signin = findViewById(R.id.tv_SignIn);
+        //tv_signin = findViewById(R.id.tv_SignIn);
         rcview.setLayoutManager(new LinearLayoutManager(this));
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);
@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity  {
         nextIntent.setVisibility(View.VISIBLE);*/
 
 
-        tv_signin.setOnClickListener(new View.OnClickListener() {
+        /*tv_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, com.example.moodTracker.LoginAuthActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
 
         //query1 = FirebaseDatabase.getInstance().getReference("QuesMt");

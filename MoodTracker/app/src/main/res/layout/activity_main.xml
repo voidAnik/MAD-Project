@@ -10,14 +10,14 @@
     android:background="#2c2c54">
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_SignIn"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="end"
         android:text="SignIn/SignUp"
         android:padding="5dp"
-        android:textColor="#FFA07A"/>
+        android:textColor="#FFA07A"/>-->
 
     <!--<com.agrawalsuneet.dotsloader.loaders.LazyLoader
         android:id="@+id/three_dot"
@@ -37,8 +37,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent" />
+
 
 
 
