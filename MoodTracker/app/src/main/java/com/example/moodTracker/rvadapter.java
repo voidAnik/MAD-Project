@@ -15,8 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
-import com.agrawalsuneet.dotsloader.loaders.LinearDotsLoader;
+
 
 import java.util.List;
 

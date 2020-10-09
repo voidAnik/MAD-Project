@@ -8,22 +8,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
+
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
+
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity  {
     private List<model> quesList;
     DatabaseReference dbreff,query1;
     TextView tv_signin, nextIntent;
-    LazyLoader lazyLoader;
     String nextValue;
     int next;
 
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //lazyLoader = findViewById(R.id.three_dot);
+
         rcview = (RecyclerView)findViewById(R.id.rv);
         tv_signin = findViewById(R.id.tv_SignIn);
         nextIntent = findViewById(R.id.tv_nextIntentValue);
