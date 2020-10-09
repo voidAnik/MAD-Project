@@ -115,8 +115,15 @@ public class LoginAuthActivity extends AppCompatActivity {
         }
     }
     private void updateUI(FirebaseUser user) {
-        assert user != null;
+        Intent intent = new Intent(this,UserProfileActivity.class);
+        intent.putExtra("name", user.getDisplayName().toString());
+        intent.putExtra("email", user.getEmail().toString());
+        //intent.putExtra("image", user.getPhotoUrl());
+        intent.putExtra("contact", user.getPhoneNumber().toString());
+       // intent.setData(user.getPhotoUrl());
+        startActivity(intent);
+        /*assert user != null;
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
-        btn_signOut.setEnabled(true);
+        btn_signOut.setEnabled(true);*/
     }
 }

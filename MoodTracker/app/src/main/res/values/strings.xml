@@ -8,4 +8,6 @@
     <string name="twitter_consumer_key" translatable="false">6OyiyMaZp9TS4UFsOmucilF3o</string>
     <string name="twitter_consumer_secret" translatable="false">YszSFhO9kH7CC1VZ6nmGkItMPRDuDUIBOJwVi7fa7s73goALM6</string>
     <string name="user_name">User Name</string>
+    <string name="update">UPDATE</string>
+    <string name="todo">TODO</string>
 </resources>
