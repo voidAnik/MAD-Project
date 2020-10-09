@@ -71,7 +71,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:hint="@string/e_mail"
             android:id="@+id/email_profile"
             android:layout_height="wrap_content"
@@ -82,12 +82,13 @@
                 android:drawablePadding="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_baseline_mail_outline_24" />
+                android:drawableStart="@drawable/ic_baseline_mail_outline_24"
+                android:editable="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:hint="@string/phone_number"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:id="@+id/contact_number_profile"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
@@ -97,7 +98,25 @@
                 android:drawablePadding="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_outline_add_ic_call_24" />
+                android:drawableStart="@drawable/ic_outline_add_ic_call_24"
+                android:inputType="phone"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="@string/date_of_birth"
+            android:layout_margin="5dp"
+            android:id="@+id/dob_profile"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dob_click"
+                android:drawableLeft="@drawable/ic_baseline_date_range_24"
+                android:drawablePadding="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_baseline_date_range_24"
+                android:focusable="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <Button
