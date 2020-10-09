@@ -1,31 +1,63 @@
 package com.example.moodTracker;
 
+import android.net.Uri;
+
 public class User {
-    String dob;
-    String phone_no;
+    String Dob;
+    String Phone;
+    String UserName;
+    String Email;
+    String photoUri;
 
     User(){
 
     }
 
-    public User(String dob, String phone_no) {
-        this.dob = dob;
-        this.phone_no = phone_no;
+    public User(String userName, String email,String dob, String phone, String photoUri) {
+        Dob = dob;
+        Phone = phone;
+        UserName = userName;
+        Email = email;
+        this.photoUri = photoUri;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getDob() {
-        return dob;
+        return Dob;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDob(String Dob) {
+        this.Dob = Dob;
     }
 
-    public String getPhone_no() {
-        return phone_no;
+    public String getPhone() {
+        return Phone;
     }
 
-    public void setPhone_no(String phone_no) {
-        this.phone_no = phone_no;
+    public void setPhone(String phone) {
+        this.Phone = phone;
+    }
+
+    public String getPhotoUri() {
+        return photoUri;
+    }
+
+    public void setPhotoUri(String photoUri) {
+        this.photoUri = photoUri;
     }
 }

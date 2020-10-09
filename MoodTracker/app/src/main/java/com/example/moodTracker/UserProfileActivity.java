@@ -48,6 +48,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         name = getIntent().getStringExtra("name");
@@ -94,7 +95,7 @@ public class UserProfileActivity extends AppCompatActivity {
         signInProviders();
 
         // Alternate info from realtime database firebase
-        if(contact.isEmpty()){
+
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
             db.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -102,8 +103,12 @@ public class UserProfileActivity extends AppCompatActivity {
                     if(snapshot.exists()) {
                         User userInfo = snapshot.getValue(User.class);
                         assert userInfo != null;
-                        et_contact.getEditText().setText(userInfo.phone_no.toString());
-                        et_dob.getEditText().setText(userInfo.dob.toString());
+                        if(et_contact.getEditText().getText().toString().isEmpty()) {
+                            et_contact.getEditText().setText(userInfo.Phone.toString());
+                        }
+                        if(et_dob.getEditText().getText().toString().isEmpty()) {
+                            et_dob.getEditText().setText(userInfo.Dob.toString());
+                        }
                     }
                 }
 
@@ -112,7 +117,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
                 }
             });
-        }
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,10 +159,16 @@ public class UserProfileActivity extends AppCompatActivity {
                         });
                 String DOB = et_dob.getEditText().getText().toString();
                 String phone = et_contact.getEditText().getText().toString();
-                User user0 = new User(DOB,phone);
+                User addUser = new User(
+                        name, 
+                        email, 
+                        DOB, 
+                        phone,
+                        photoUrl.toString());
+                
                 FirebaseDatabase.getInstance().getReference("Users")
                         .child(user.getUid())
-                        .setValue(user0).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        .setValue(addUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){

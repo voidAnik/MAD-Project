@@ -6,17 +6,9 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-
-
 import java.util.List;
 
 public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
