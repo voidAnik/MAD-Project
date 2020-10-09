@@ -71,6 +71,8 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                 public void onClick(View view) {
                     holder.tv_reply.setText(model.btn_ans1);
                     holder.tv_reply.setVisibility(View.VISIBLE);
+                    hideReplyButtons(holder);
+
                     next = 1;
                     /*Intent nxtIntent = new Intent(mCtx, MainActivity.class);
                     //nxtIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -90,6 +92,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                 public void onClick(View view) {
                     holder.tv_reply.setText(model.btn_ans2);
                     holder.tv_reply.setVisibility(View.VISIBLE);
+                    hideReplyButtons(holder);
                     next = 1;
                 }
             });
@@ -104,6 +107,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                 public void onClick(View view) {
                     holder.tv_reply.setText(model.btn_ans3);
                     holder.tv_reply.setVisibility(View.VISIBLE);
+                    hideReplyButtons(holder);
                 }
             });
 
@@ -117,6 +121,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                 public void onClick(View view) {
                     holder.tv_reply.setText(model.btn_ans4);
                     holder.tv_reply.setVisibility(View.VISIBLE);
+                    hideReplyButtons(holder);
                 }
             });
 
@@ -125,6 +130,13 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             holder.btn_txt.setVisibility(View.GONE);
         else
             holder.btn_txt.setVisibility(View.VISIBLE);
+    }
+
+    private void hideReplyButtons(myviewholder holder) {
+        holder.btn_ans1.setVisibility(View.GONE);
+        holder.btn_ans2.setVisibility(View.GONE);
+        holder.btn_ans3.setVisibility(View.GONE);
+        holder.btn_ans4.setVisibility(View.GONE);
     }
 
     @Override

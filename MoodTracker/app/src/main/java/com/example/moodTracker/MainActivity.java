@@ -5,10 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,6 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class MainActivity extends AppCompatActivity  {
 
     RecyclerView rcview ;
@@ -31,10 +30,9 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //lazyLoader = findViewById(R.id.three_dot);
         rcview = (RecyclerView)findViewById(R.id.rv);
         tv_signin = findViewById(R.id.tv_SignIn);
-        nextIntent = findViewById(R.id.tv_nextIntentValue);
         rcview.setLayoutManager(new LinearLayoutManager(this));
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);

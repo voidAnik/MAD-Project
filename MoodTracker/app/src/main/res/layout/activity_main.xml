@@ -18,15 +18,6 @@
         android:text="SignIn/SignUp"
         android:padding="5dp"
         android:textColor="#FFA07A"/>
-    <TextView
-        android:id="@+id/tv_nextIntentValue"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="end"
-        android:text="lala"
-        android:padding="5dp"
-        android:textColor="#FFA07A"
-       />
 
     <!--<com.agrawalsuneet.dotsloader.loaders.LazyLoader
         android:id="@+id/three_dot"
