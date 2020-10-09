@@ -78,7 +78,7 @@ public class LoginAuthActivity extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
                         .setLogo(R.drawable.ic_baseline_insert_emoticon_24)
-                        .setTheme(R.style.loginTheme)
+                        .setTheme(R.style.LoginTheme)
                         .setTosAndPrivacyPolicyUrls(
                                 "https://joebirch.co/terms.html",
                                 "https://joebirch.co/privacy.html")
