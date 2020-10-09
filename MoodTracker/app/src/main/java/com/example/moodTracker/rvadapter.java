@@ -22,7 +22,6 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         this.quesList = quesList;
     }
     rvadapter(){
-
     }
 
     public int getNext() {
@@ -39,7 +38,6 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.single_view,parent,false);
         return new myviewholder(view);
     }
-
 
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
         model model = quesList.get(position);
