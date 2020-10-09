@@ -1,15 +1,22 @@
 package com.example.moodTracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
+import com.agrawalsuneet.dotsloader.loaders.LinearDotsLoader;
 
 import java.util.List;
 
@@ -17,10 +24,22 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
     private Context mCtx;
     private List<model> quesList;
+    private int next = 0;
 
     public rvadapter(Context mCtx, List<model> quesList) {
         this.mCtx = mCtx;
         this.quesList = quesList;
+    }
+    rvadapter(){
+
+    }
+
+    public int getNext() {
+        return next;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
     }
 
     @NonNull
@@ -33,6 +52,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
         model model = quesList.get(position);
+
 
         holder.tv_ques1.setText(model.q1);
         if (TextUtils.isEmpty(holder.tv_ques1.getText().toString()))
@@ -52,43 +72,70 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         else
             holder.tv_ques3.setVisibility(View.VISIBLE);
 
-        holder.tv_reply.setText(model.id);
-        if (TextUtils.isEmpty(holder.tv_reply.getText().toString()))
-            holder.tv_reply.setVisibility(View.GONE);
-        else
-            holder.tv_reply.setVisibility(View.VISIBLE);
-
         holder.btn_ans1.setText(model.btn_ans1);
         if (TextUtils.isEmpty(holder.btn_ans1.getText().toString()))
            holder.btn_ans1.setVisibility(View.GONE);
         else
             holder.btn_ans1.setVisibility(View.VISIBLE);
+            holder.btn_ans1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.tv_reply.setText(model.btn_ans1);
+                    holder.tv_reply.setVisibility(View.VISIBLE);
+                    next = 1;
+                    /*Intent nxtIntent = new Intent(mCtx, MainActivity.class);
+                    //nxtIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    nxtIntent.putExtra("value",next);
+                    mCtx.startActivity(nxtIntent);*/
+                }
+            });
+
 
         holder.btn_ans2.setText(model.btn_ans2);
         if (TextUtils.isEmpty(holder.btn_ans2.getText().toString()))
             holder.btn_ans2.setVisibility(View.GONE);
         else
             holder.btn_ans2.setVisibility(View.VISIBLE);
+            holder.btn_ans2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.tv_reply.setText(model.btn_ans2);
+                    holder.tv_reply.setVisibility(View.VISIBLE);
+                    next = 1;
+                }
+            });
 
         holder.btn_ans3.setText(model.btn_ans3);
         if (TextUtils.isEmpty(holder.btn_ans3.getText().toString()))
             holder.btn_ans3.setVisibility(View.GONE);
         else
             holder.btn_ans3.setVisibility(View.VISIBLE);
+            holder.btn_ans3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.tv_reply.setText(model.btn_ans3);
+                    holder.tv_reply.setVisibility(View.VISIBLE);
+                }
+            });
 
         holder.btn_ans4.setText(model.btn_ans4);
         if (TextUtils.isEmpty(holder.btn_ans4.getText().toString()))
             holder.btn_ans4.setVisibility(View.GONE);
         else
             holder.btn_ans4.setVisibility(View.VISIBLE);
+            holder.btn_ans4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.tv_reply.setText(model.btn_ans4);
+                    holder.tv_reply.setVisibility(View.VISIBLE);
+                }
+            });
 
         holder.btn_txt.setText(model.btn_txt);
         if (TextUtils.isEmpty(holder.btn_txt.getText().toString()))
             holder.btn_txt.setVisibility(View.GONE);
         else
             holder.btn_txt.setVisibility(View.VISIBLE);
-
-
     }
 
     @Override
@@ -113,6 +160,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
             btn_ans2 = itemView.findViewById(R.id.btn_ans2);
             btn_ans3 = itemView.findViewById(R.id.btn_ans3);
             btn_ans4 = itemView.findViewById(R.id.btn_ans4);
+
         }
     }
 }

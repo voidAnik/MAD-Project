@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginAuthActivity">
+    tools:context=".LoginAuthActivity"
+    android:background="#2c2c54">
 
 </RelativeLayout>

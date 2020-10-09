@@ -20,6 +20,7 @@
             android:orientation="vertical"
             android:padding="3dp"
             >
+
             <TextView
                 android:id="@+id/tv_ques1"
                 android:layout_width="wrap_content"
@@ -31,7 +32,6 @@
                 android:textSize="13.5dp"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/receive_round_box"
-
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             <TextView
                 android:id="@+id/tv_ques2"
@@ -61,7 +61,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             <TextView
                 android:id="@+id/tv_reply"
-                android:layout_width="197dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
                 android:layout_gravity="end"
@@ -71,7 +71,8 @@
                 android:backgroundTint="#FFA07A"
                 android:background="@drawable/send_round_box"
                 android:text="Ques"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
