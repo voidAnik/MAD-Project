@@ -164,7 +164,8 @@ public class UserProfileActivity extends AppCompatActivity {
                         email, 
                         DOB, 
                         phone,
-                        photoUrl.toString());
+                        photoUrl.toString(),
+                        provider);
                 
                 FirebaseDatabase.getInstance().getReference("Users")
                         .child(user.getUid())

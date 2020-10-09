@@ -1,6 +1,7 @@
 package com.example.moodTracker;
 
 import android.net.Uri;
+import android.widget.ProgressBar;
 
 public class User {
     String Dob;
@@ -8,17 +9,19 @@ public class User {
     String UserName;
     String Email;
     String photoUri;
+    String Provider;
 
     User(){
 
     }
 
-    public User(String userName, String email,String dob, String phone, String photoUri) {
+    public User(String userName, String email,String dob, String phone, String photoUri, String provider) {
         Dob = dob;
         Phone = phone;
         UserName = userName;
         Email = email;
         this.photoUri = photoUri;
+        Provider = provider;
     }
 
     public String getUserName() {
@@ -59,5 +62,13 @@ public class User {
 
     public void setPhotoUri(String photoUri) {
         this.photoUri = photoUri;
+    }
+
+    public String getProvider() {
+        return Provider;
+    }
+
+    public void setProvider(String provider) {
+        Provider = provider;
     }
 }
