@@ -16,6 +16,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
     private Context mCtx;
     private List<model> quesList;
     private int next = 0;
+    int limit =1;
 
     public rvadapter(Context mCtx, List<model> quesList) {
         this.mCtx = mCtx;
@@ -33,7 +34,6 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
     }
 
     @NonNull
-
     public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.single_view,parent,false);
         return new myviewholder(view);
@@ -41,7 +41,6 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
         model model = quesList.get(position);
-
 
         holder.tv_ques1.setText(model.q1);
         if (TextUtils.isEmpty(holder.tv_ques1.getText().toString()))
@@ -71,8 +70,8 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                 public void onClick(View view) {
                     holder.tv_reply.setText(model.btn_ans1);
                     holder.tv_reply.setVisibility(View.VISIBLE);
+                    limit += 1;
                     hideReplyButtons(holder);
-
                     next = 1;
                     /*Intent nxtIntent = new Intent(mCtx, MainActivity.class);
                     //nxtIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -93,6 +92,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setText(model.btn_ans2);
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
+                    limit += 1;
                     next = 1;
                 }
             });
@@ -108,6 +108,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setText(model.btn_ans3);
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
+                    limit += 1;
                 }
             });
 
@@ -122,6 +123,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
                     holder.tv_reply.setText(model.btn_ans4);
                     holder.tv_reply.setVisibility(View.VISIBLE);
                     hideReplyButtons(holder);
+                    limit += 1;
                 }
             });
 
@@ -141,7 +143,11 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
 
     @Override
     public int getItemCount() {
-        return quesList.size();
+        if(quesList.size()>limit) {
+            return limit;
+        }else{
+            return quesList.size();
+        }
     }
 
     class myviewholder extends RecyclerView.ViewHolder{
