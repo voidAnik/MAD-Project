@@ -1,19 +1,13 @@
 package com.example.moodTracker;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
@@ -21,7 +15,6 @@ import java.util.List;
 public class LoginAuthActivity extends AppCompatActivity {
     List<AuthUI.IdpConfig> providers;
     private static final int RC_SIGN_IN = 163;
-    Button btn_signOut;
 
     /*@Override
     public void onStart() {
@@ -41,7 +34,7 @@ public class LoginAuthActivity extends AppCompatActivity {
         /*FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);*/
 
-        btn_signOut = findViewById(R.id.btn_signOut);
+        /*btn_signOut = findViewById(R.id.btn_signOut);
         btn_signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +53,7 @@ public class LoginAuthActivity extends AppCompatActivity {
                 });
 
             }
-        });
+        });*/
 
         // Choose authentication providers
         providers = Arrays.asList(
@@ -86,6 +79,9 @@ public class LoginAuthActivity extends AppCompatActivity {
                         .setAvailableProviders(providers)
                         .setLogo(R.drawable.ic_baseline_insert_emoticon_24)
                         .setTheme(R.style.loginTheme)
+                        .setTosAndPrivacyPolicyUrls(
+                                "https://joebirch.co/terms.html",
+                                "https://joebirch.co/privacy.html")
                         .build(),
                 RC_SIGN_IN);
     }
@@ -114,10 +110,10 @@ public class LoginAuthActivity extends AppCompatActivity {
     }
     private void updateUI(FirebaseUser user) {
         Intent intent = new Intent(this,UserProfileActivity.class);
-        intent.putExtra("name", user.getDisplayName().toString());
-        intent.putExtra("email", user.getEmail().toString());
-        //intent.putExtra("image", user.getPhotoUrl());
-        intent.putExtra("contact", user.getPhoneNumber().toString());
+        intent.putExtra("name", user.getDisplayName());
+        intent.putExtra("email", user.getEmail());
+        intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider());
+        intent.putExtra("contact", user.getPhoneNumber());
         intent.setData(user.getPhotoUrl());
         startActivity(intent);
         /*assert user != null;
