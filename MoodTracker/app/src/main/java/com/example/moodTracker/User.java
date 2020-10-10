@@ -1,18 +1,14 @@
 package com.example.moodTracker;
 
-import android.net.Uri;
-import android.widget.ProgressBar;
-
 public class User {
-    String Dob = null;
-    String Phone = null;
-    String UserName = null;
-    String Email = null;
-    String photoUri = null;
-    String Provider = null;
+    public String Dob;
+    public String Phone;
+    public String UserName;
+    public String Email;
+    public String photoUri;
+    public String Provider;
 
     User(){
-
     }
 
     public User(String userName, String email, String photoUri, String provider) {

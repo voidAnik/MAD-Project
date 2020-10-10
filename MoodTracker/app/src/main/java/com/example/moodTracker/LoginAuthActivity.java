@@ -114,21 +114,23 @@ public class LoginAuthActivity extends AppCompatActivity {
         }
     }
     private void updateUI(FirebaseUser user) {
-       /* Intent intent = new Intent(this,UserProfileActivity.class);
-        intent.putExtra("name", user.getDisplayName());
-        intent.putExtra("email", user.getEmail());
-        intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider());
-        intent.putExtra("contact", user.getPhoneNumber());
+        Intent intent = new Intent(this,FunctionalActivity.class);
+        intent.putExtra("name", user.getDisplayName().toString());
+        intent.putExtra("email", user.getEmail().toString());
+        intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider().toString());
+        intent.putExtra("contact", user.getPhoneNumber().toString());
         intent.setData(user.getPhotoUrl());
-        startActivity(intent);*/
+        startActivity(intent);
         /*assert user != null;
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
         btn_signOut.setEnabled(true);*/
-        User addUser = new User(
-                user.getDisplayName().toString(),
-                user.getEmail().toString(),
+        /*User addUser = new User(
+                user.getDisplayName(),
+                user.getEmail(),
+                "",
+                "",
                 user.getPhotoUrl().toString(),
-                user.getIdToken(false).getResult().getSignInProvider().toString());
+                user.getIdToken(false).getResult().getSignInProvider());
 
         FirebaseDatabase.getInstance().getReference("Users")
                 .child(user.getUid())
@@ -142,6 +144,6 @@ public class LoginAuthActivity extends AppCompatActivity {
                     Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
     }
 }
