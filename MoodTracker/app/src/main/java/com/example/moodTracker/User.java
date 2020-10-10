@@ -11,12 +11,12 @@ public class User {
     User(){
     }
 
-    public User(String userName, String email, String photoUri, String provider) {
+    /*public User(String userName, String email, String photoUri, String provider) {
         UserName = userName;
         Email = email;
         this.photoUri = photoUri;
         Provider = provider;
-    }
+    }*/
 
     public User(String userName, String email, String dob, String phone, String photoUri, String provider) {
         Dob = dob;

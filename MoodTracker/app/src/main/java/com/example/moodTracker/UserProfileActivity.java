@@ -36,7 +36,7 @@ import java.io.File;
 import java.util.Calendar;
 
 public class UserProfileActivity extends AppCompatActivity {
-    String name, email, contact, provider;
+    String name = "", email = "", contact = "", provider = "";
     Uri photoUrl;
     TextView full_name, loggedInWith;
     com.google.android.material.textfield.TextInputLayout et_name, et_email, et_contact, et_dob;
@@ -48,19 +48,25 @@ public class UserProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        name = getIntent().getStringExtra("name");
+        /*name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
         contact = getIntent().getStringExtra("contact");
         provider = getIntent().getStringExtra("provider");
-        photoUrl = getIntent().getData();
+        photoUrl = getIntent().getData();*/
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        assert user != null;
+        name = user.getDisplayName().toString();
+        email = user.getEmail().toString();
+        contact = user.getPhoneNumber().toString();
+        provider = user.getIdToken(false).getResult().getSignInProvider().toString();
+        photoUrl = user.getPhotoUrl();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()) {
+                /*if(snapshot.exists()) {
                     User userInfo = snapshot.getValue(User.class);
                     assert userInfo != null;
                     if(et_contact.getEditText().getText().toString().isEmpty()) {
@@ -69,7 +75,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     if(et_dob.getEditText().getText().toString().isEmpty()) {
                         et_dob.getEditText().setText(userInfo.Dob.toString());
                     }
-                }
+                }*/
             }
 
             @Override
@@ -91,16 +97,29 @@ public class UserProfileActivity extends AppCompatActivity {
         signOut = findViewById(R.id.btn_sign_out);
 
         // updating values
-
-        full_name.setText(name);
-        et_name.getEditText().setText(name);
-        et_email.getEditText().setText(email);
-        et_contact.getEditText().setText(contact);
+        if(name != null) {
+            full_name.setText(name);
+            et_name.getEditText().setText(name);
+        }else{
+            name = "";
+        }
+        if(email != null) {
+            et_email.getEditText().setText(email);
+        }else{
+            email = "";
+        }
+        if(contact != null) {
+            et_contact.getEditText().setText(contact);
+        }else{
+            contact = "";
+        }
         //profile_image.setImageURI(photoUrl);
-        Glide.with(getBaseContext())
-                .load(photoUrl)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(profile_image);
+        if(photoUrl != null) {
+            Glide.with(getBaseContext())
+                    .load(photoUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(profile_image);
+        }
 
         // Date of birth current time show
         if(et_dob.getEditText().getText().toString().isEmpty()){
@@ -157,8 +176,15 @@ public class UserProfileActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                String DOB = et_dob.getEditText().getText().toString();
-                String phone = et_contact.getEditText().getText().toString();
+                String DOB, phone;
+                DOB = et_dob.getEditText().getText().toString();
+                if(et_contact.getEditText().getText().toString().isEmpty()) {
+                    phone = et_contact.getEditText().getText().toString();
+                }
+                else {
+                    phone = "00-00";
+                }
+                //phone = et_contact.getEditText().getText().toString();
                 User addUser = new User(
                         name, 
                         email, 
@@ -242,5 +268,11 @@ public class UserProfileActivity extends AppCompatActivity {
                 profile_image.setImageResource(R.drawable.profile_sample);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
