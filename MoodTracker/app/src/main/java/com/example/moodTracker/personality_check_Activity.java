@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -34,6 +35,7 @@ public class personality_check_Activity extends AppCompatActivity {
     DatabaseReference query1;
     int score = 0;
     int i;
+    int ques_count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,27 +122,35 @@ public class personality_check_Activity extends AppCompatActivity {
         list.add(new personality_model("ques5","k1","b","c","d"));*/
         //play_animation(tv_question,0,list.get(position).getQuestion());
         ques_change_btn.setOnClickListener(new View.OnClickListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
+                if(list.size()-1>ques_count){
+                    count = 0;
+                    play_animation(tv_question,0,list.get(position).getQuestion());
+                    //play_animation(btn_layout,0);
 
-                count = 0;
-                play_animation(tv_question,0,list.get(position).getQuestion());
-                //play_animation(btn_layout,0);
+                    position++;
 
-                position++;
-
-                ans_btn1.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
-                ans_btn2.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
-                ans_btn3.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
-                ans_btn4.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
-                ans_btn1.setEnabled(true);
-                ans_btn2.setEnabled(true);
-                ans_btn3.setEnabled(true);
-                ans_btn4.setEnabled(true);
-                ques_change_btn.setEnabled(false);
-                Toast.makeText(personality_check_Activity.this, "Your Score: "+score, Toast.LENGTH_SHORT).show();
-                ques_change_btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FABFBE")));
+                    ans_btn1.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                    ans_btn2.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                    ans_btn3.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                    ans_btn4.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                    ans_btn1.setEnabled(true);
+                    ans_btn2.setEnabled(true);
+                    ans_btn3.setEnabled(true);
+                    ans_btn4.setEnabled(true);
+                    ques_change_btn.setEnabled(false);
+                    Toast.makeText(personality_check_Activity.this, "Your Score: "+ques_count, Toast.LENGTH_SHORT).show();
+                    ques_change_btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FABFBE")));
+                    ques_count++;
+                }
+                else{
+                    Intent intent = new Intent(personality_check_Activity.this,com.example.moodTracker.FunctionalActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
