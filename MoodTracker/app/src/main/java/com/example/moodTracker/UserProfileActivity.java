@@ -48,7 +48,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         /*name = getIntent().getStringExtra("name");
@@ -101,17 +100,26 @@ public class UserProfileActivity extends AppCompatActivity {
         if(name != null) {
             full_name.setText(name);
             et_name.getEditText().setText(name);
+        }else{
+            name = "";
         }
-        if(email != null)
-        et_email.getEditText().setText(email);
-        if(contact != null)
-        et_contact.getEditText().setText(contact);
+        if(email != null) {
+            et_email.getEditText().setText(email);
+        }else{
+            email = "";
+        }
+        if(contact != null) {
+            et_contact.getEditText().setText(contact);
+        }else{
+            contact = "";
+        }
         //profile_image.setImageURI(photoUrl);
-        if(photoUrl != null)
-        Glide.with(getBaseContext())
-                .load(photoUrl)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(profile_image);
+        if(photoUrl != null) {
+            Glide.with(getBaseContext())
+                    .load(photoUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(profile_image);
+        }
 
         // Date of birth current time show
         if(et_dob.getEditText().getText().toString().isEmpty()){
@@ -169,17 +177,12 @@ public class UserProfileActivity extends AppCompatActivity {
                             }
                         });
                 String DOB, phone;
-                if(!et_dob.getEditText().getText().toString().isEmpty()) {
-                    DOB = et_dob.getEditText().getText().toString();
-                }
-                else {
-                    DOB = "";
-                }
-                if(!et_contact.getEditText().getText().toString().isEmpty()) {
+                DOB = et_dob.getEditText().getText().toString();
+                if(et_contact.getEditText().getText().toString().isEmpty()) {
                     phone = et_contact.getEditText().getText().toString();
                 }
                 else {
-                    phone = "";
+                    phone = "00-00";
                 }
                 //phone = et_contact.getEditText().getText().toString();
                 User addUser = new User(
@@ -265,5 +268,11 @@ public class UserProfileActivity extends AppCompatActivity {
                 profile_image.setImageResource(R.drawable.profile_sample);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
