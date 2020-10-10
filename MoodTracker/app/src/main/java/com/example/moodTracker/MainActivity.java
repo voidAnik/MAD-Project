@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity  {
     DatabaseReference dbreff,query1;
     TextView tv_signin;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity  {
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);
         rcview.setAdapter(adapter);
+
+
+
+
+
 
         tv_signin.setOnClickListener(new View.OnClickListener() {
             @Override

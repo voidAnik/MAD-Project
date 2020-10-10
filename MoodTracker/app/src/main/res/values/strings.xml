@@ -10,4 +10,5 @@
     <string name="user_name">User Name</string>
     <string name="update">UPDATE</string>
     <string name="todo">TODO</string>
+    <string name="personality_check">Personality Check</string>
 </resources>
