@@ -66,7 +66,7 @@ public class UserProfileActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()) {
+                /*if(snapshot.exists()) {
                     User userInfo = snapshot.getValue(User.class);
                     assert userInfo != null;
                     if(et_contact.getEditText().getText().toString().isEmpty()) {
@@ -75,7 +75,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     if(et_dob.getEditText().getText().toString().isEmpty()) {
                         et_dob.getEditText().setText(userInfo.Dob.toString());
                     }
-                }
+                }*/
             }
 
             @Override
