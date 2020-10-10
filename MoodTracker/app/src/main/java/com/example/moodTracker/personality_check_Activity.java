@@ -130,10 +130,10 @@ public class personality_check_Activity extends AppCompatActivity {
 
                 position++;
 
-                ans_btn1.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
-                ans_btn2.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
-                ans_btn3.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
-                ans_btn4.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#000000")));
+                ans_btn1.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                ans_btn2.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                ans_btn3.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
+                ans_btn4.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA07A")));
                 ans_btn1.setEnabled(true);
                 ans_btn2.setEnabled(true);
                 ans_btn3.setEnabled(true);
