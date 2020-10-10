@@ -147,9 +147,10 @@ public class personality_check_Activity extends AppCompatActivity {
                     ques_count++;
                 }
                 else{
-                    Intent intent = new Intent(personality_check_Activity.this,com.example.moodTracker.FunctionalActivity.class);
+                    Intent intent = new Intent(personality_check_Activity.this,com.example.moodTracker.pieActivity.class);
+                    intent.putExtra("score",score);
                     startActivity(intent);
-                    finish();
+                    //finish();
                 }
             }
         });

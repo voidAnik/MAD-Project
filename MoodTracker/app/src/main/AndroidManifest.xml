@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".personality_check_Activity" ></activity>
+        <activity android:name=".personality_check_Activity" />
+        <activity android:name=".pieActivity"/>
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".LoginAuthActivity" />
         <activity android:name=".FunctionalActivity" />
