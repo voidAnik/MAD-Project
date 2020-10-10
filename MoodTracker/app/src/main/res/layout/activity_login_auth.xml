@@ -4,20 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginAuthActivity">
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/wave"
-        android:visibility="gone"/>
-    <Button
-        android:id="@+id/btn_signOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:enabled="false"
-        android:text="@string/sign_out"/>
+    tools:context=".LoginAuthActivity"
+    android:background="#2c2c54">
 
 </RelativeLayout>

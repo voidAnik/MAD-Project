@@ -10,7 +10,7 @@ public class model {
 
     }
 
-    /*public model(String q1, String q2, String q3, String btn_ans1, String btn_ans2, String btn_ans3, String btn_ans4, String btn_txt, String id) {
+    /*pub lic model(String q1, String q2, String q3, String btn_ans1, String btn_ans2, String btn_ans3, String btn_ans4, String btn_txt, String id) {
         this.q1 = q1;
         this.q2 = q2;
         this.q3 = q3;

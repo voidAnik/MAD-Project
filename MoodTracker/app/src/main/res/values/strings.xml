@@ -10,5 +10,14 @@
     <string name="user_name">User Name</string>
     <string name="update">UPDATE</string>
     <string name="todo">TODO</string>
+
     <string name="personality_check">Personality Check</string>
+    <string name="full_name">Full Name</string>
+    <string name="e_mail">E-mail</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="logged_in_by">logged in by</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="button_text_no_action">button_text ( No Action )</string>
+    <string name="sign_in_sign_up">sign in/ sign up</string>
+
 </resources>
