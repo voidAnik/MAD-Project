@@ -137,7 +137,7 @@ public class LoginAuthActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(LoginAuthActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginAuthActivity.this, FunctionalActivity.class));
+                    //startActivity(new Intent(LoginAuthActivity.this, FunctionalActivity.class));
                 }else{
                     Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
