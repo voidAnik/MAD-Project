@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#fece2f"
+        android:background="#2c2c54"
         android:padding="20dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
@@ -32,7 +32,7 @@
             android:fontFamily="@font/bungee"
             android:includeFontPadding="false"
             android:text="@string/user_name"
-            android:textColor="#000"
+            android:textColor="#FFA07A"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/loggedInWith"
@@ -46,6 +46,7 @@
             android:text="@string/logged_in_by"
             android:textSize="16sp"
             android:layout_marginStart="15dp"
+            android:textColor="#FFA07A"
             android:layout_toEndOf="@+id/profile_image" />
 
     </RelativeLayout>
@@ -121,19 +122,21 @@
         </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/btn_update"
-            android:background="#fece2f"
+            android:background="#2c2c54"
             android:fontFamily="@font/bungee"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
+            android:textColor="#FFA07A"
             android:text="@string/update" />
         <Button
             android:id="@+id/btn_sign_out"
-            android:background="#fece2f"
+            android:background="#2c2c54"
             android:fontFamily="@font/bungee"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
+            android:textColor="#FFA07A"
             android:text="@string/sign_out" />
     </LinearLayout>
 

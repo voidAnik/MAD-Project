@@ -157,7 +157,7 @@ public class personality_check_Activity extends AppCompatActivity {
 
     private void play_animation(View view, int value, String data){
         view.animate().alpha(value).scaleX(value).scaleY(value)
-                .setDuration(500).setStartDelay(100)
+                .setDuration(200).setStartDelay(80)
                 .setInterpolator(new DecelerateInterpolator())
                 .setListener(new Animator.AnimatorListener() {
                     @Override
