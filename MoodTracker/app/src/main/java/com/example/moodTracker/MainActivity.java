@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity  {
     String nextValue;
     int next;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +43,13 @@ public class MainActivity extends AppCompatActivity  {
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);
         rcview.setAdapter(adapter);
-
-
        /* final int value = getIntent().getIntExtra("value",0);
         nextIntent.setText(value);
         nextIntent.setVisibility(View.VISIBLE);*/
 
 
         /*tv_signin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, com.example.moodTracker.LoginAuthActivity.class);
