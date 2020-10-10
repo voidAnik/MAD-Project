@@ -116,11 +116,13 @@ public class LoginAuthActivity extends AppCompatActivity {
     }
     private void updateUI(FirebaseUser user) {
         Intent intent = new Intent(this,FunctionalActivity.class);
-        intent.putExtra("name", user.getDisplayName().toString());
+        /*intent.putExtra("name", user.getDisplayName().toString());
         intent.putExtra("email", user.getEmail().toString());
         intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider().toString());
-        intent.putExtra("contact", user.getPhoneNumber().toString());
-        intent.setData(user.getPhotoUrl());
+        if(!user.getPhoneNumber().toString().isEmpty()) {
+            intent.putExtra("contact", user.getPhoneNumber().toString());
+        }
+        intent.setData(user.getPhotoUrl());*/
         startActivity(intent);
 
     }

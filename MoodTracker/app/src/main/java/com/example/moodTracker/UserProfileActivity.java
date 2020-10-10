@@ -36,7 +36,7 @@ import java.io.File;
 import java.util.Calendar;
 
 public class UserProfileActivity extends AppCompatActivity {
-    String name, email, contact, provider;
+    String name = "", email = "", contact = "", provider = "";
     Uri photoUrl;
     TextView full_name, loggedInWith;
     com.google.android.material.textfield.TextInputLayout et_name, et_email, et_contact, et_dob;
@@ -51,11 +51,18 @@ public class UserProfileActivity extends AppCompatActivity {
         Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        name = getIntent().getStringExtra("name");
+        /*name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
         contact = getIntent().getStringExtra("contact");
         provider = getIntent().getStringExtra("provider");
-        photoUrl = getIntent().getData();
+        photoUrl = getIntent().getData();*/
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        assert user != null;
+        name = user.getDisplayName().toString();
+        email = user.getEmail().toString();
+        contact = user.getPhoneNumber().toString();
+        provider = user.getIdToken(false).getResult().getSignInProvider().toString();
+        photoUrl = user.getPhotoUrl();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,12 +98,16 @@ public class UserProfileActivity extends AppCompatActivity {
         signOut = findViewById(R.id.btn_sign_out);
 
         // updating values
-
-        full_name.setText(name);
-        et_name.getEditText().setText(name);
+        if(name != null) {
+            full_name.setText(name);
+            et_name.getEditText().setText(name);
+        }
+        if(email != null)
         et_email.getEditText().setText(email);
+        if(contact != null)
         et_contact.getEditText().setText(contact);
         //profile_image.setImageURI(photoUrl);
+        if(photoUrl != null)
         Glide.with(getBaseContext())
                 .load(photoUrl)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -157,8 +168,20 @@ public class UserProfileActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                String DOB = et_dob.getEditText().getText().toString();
-                String phone = et_contact.getEditText().getText().toString();
+                String DOB, phone;
+                if(!et_dob.getEditText().getText().toString().isEmpty()) {
+                    DOB = et_dob.getEditText().getText().toString();
+                }
+                else {
+                    DOB = "";
+                }
+                if(!et_contact.getEditText().getText().toString().isEmpty()) {
+                    phone = et_contact.getEditText().getText().toString();
+                }
+                else {
+                    phone = "";
+                }
+                //phone = et_contact.getEditText().getText().toString();
                 User addUser = new User(
                         name, 
                         email, 

@@ -25,11 +25,11 @@ public class FunctionalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_functional);
 
-        name = getIntent().getStringExtra("name");
+        /*name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
         contact = getIntent().getStringExtra("contact");
         provider = getIntent().getStringExtra("provider");
-        photoUrl = getIntent().getData();
+        photoUrl = getIntent().getData();*/
 
         btn_profile = findViewById(R.id.btn_profile);
         btn_queries = findViewById(R.id.btn_queries);
@@ -39,11 +39,11 @@ public class FunctionalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Intent intent = new Intent(FunctionalActivity.this,UserProfileActivity.class);
-                intent.putExtra("name", user.getDisplayName().toString());
+                /*intent.putExtra("name", user.getDisplayName().toString());
                 intent.putExtra("email", user.getEmail().toString());
                 intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider().toString());
                 intent.putExtra("contact", user.getPhoneNumber().toString());
-                intent.setData(user.getPhotoUrl());
+                intent.setData(user.getPhotoUrl());*/
                 startActivity(intent);
             }
         });
