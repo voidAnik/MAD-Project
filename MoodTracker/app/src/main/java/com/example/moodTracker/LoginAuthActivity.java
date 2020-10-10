@@ -1,5 +1,6 @@
 package com.example.moodTracker;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +9,12 @@ import android.os.Bundle;
 import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Arrays;
 import java.util.List;
 public class LoginAuthActivity extends AppCompatActivity {
@@ -109,15 +114,34 @@ public class LoginAuthActivity extends AppCompatActivity {
         }
     }
     private void updateUI(FirebaseUser user) {
-        Intent intent = new Intent(this,UserProfileActivity.class);
+       /* Intent intent = new Intent(this,UserProfileActivity.class);
         intent.putExtra("name", user.getDisplayName());
         intent.putExtra("email", user.getEmail());
         intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider());
         intent.putExtra("contact", user.getPhoneNumber());
         intent.setData(user.getPhotoUrl());
-        startActivity(intent);
+        startActivity(intent);*/
         /*assert user != null;
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
         btn_signOut.setEnabled(true);*/
+        User addUser = new User(
+                user.getDisplayName(),
+                user.getEmail(),
+                user.getPhotoUrl().toString(),
+                user.getIdToken(false).getResult().getSignInProvider());
+
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(user.getUid())
+                .setValue(addUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(LoginAuthActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginAuthActivity.this, FunctionalActivity.class));
+                }else{
+                    Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

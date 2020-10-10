@@ -51,11 +51,37 @@ public class UserProfileActivity extends AppCompatActivity {
         Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        name = getIntent().getStringExtra("name");
+        /*name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
         contact = getIntent().getStringExtra("contact");
         provider = getIntent().getStringExtra("provider");
-        photoUrl = getIntent().getData();
+        photoUrl = getIntent().getData();*/
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    User userInfo = snapshot.getValue(User.class);
+                    assert userInfo != null;
+                    /*if(et_contact.getEditText().getText().toString().isEmpty()) {
+                        et_contact.getEditText().setText(userInfo.Phone.toString());
+                    }
+                    if(et_dob.getEditText().getText().toString().isEmpty()) {
+                        et_dob.getEditText().setText(userInfo.Dob.toString());
+                    }*/
+                    name = userInfo.UserName;
+                    email = userInfo.Email;
+                    contact = userInfo.Phone;
+                    provider = userInfo.Provider;
+                    photoUrl = Uri.parse(userInfo.photoUri);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         // Binding
         full_name = findViewById(R.id.fullName_field);
@@ -96,27 +122,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
         // Alternate info from realtime database firebase
 
-            DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-            db.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()) {
-                        User userInfo = snapshot.getValue(User.class);
-                        assert userInfo != null;
-                        if(et_contact.getEditText().getText().toString().isEmpty()) {
-                            et_contact.getEditText().setText(userInfo.Phone.toString());
-                        }
-                        if(et_dob.getEditText().getText().toString().isEmpty()) {
-                            et_dob.getEditText().setText(userInfo.Dob.toString());
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

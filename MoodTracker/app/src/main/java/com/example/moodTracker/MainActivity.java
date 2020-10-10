@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity  {
         rcview = (RecyclerView)findViewById(R.id.rv);
         //tv_signin = findViewById(R.id.tv_SignIn);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
+        //linearLayoutManager.setStackFromEnd(true);
         rcview.setLayoutManager(linearLayoutManager);
         quesList = new ArrayList<>();
         adapter = new rvadapter(this,quesList);
