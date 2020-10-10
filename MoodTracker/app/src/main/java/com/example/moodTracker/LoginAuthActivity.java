@@ -100,6 +100,7 @@ public class LoginAuthActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                Toast.makeText(this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                 assert user != null;
                 updateUI(user);
                 // ...
@@ -114,34 +115,13 @@ public class LoginAuthActivity extends AppCompatActivity {
         }
     }
     private void updateUI(FirebaseUser user) {
-       /* Intent intent = new Intent(this,UserProfileActivity.class);
-        intent.putExtra("name", user.getDisplayName());
-        intent.putExtra("email", user.getEmail());
-        intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider());
-        intent.putExtra("contact", user.getPhoneNumber());
+        Intent intent = new Intent(this,FunctionalActivity.class);
+        intent.putExtra("name", user.getDisplayName().toString());
+        intent.putExtra("email", user.getEmail().toString());
+        intent.putExtra("provider", user.getIdToken(false).getResult().getSignInProvider().toString());
+        intent.putExtra("contact", user.getPhoneNumber().toString());
         intent.setData(user.getPhotoUrl());
-        startActivity(intent);*/
-        /*assert user != null;
-        Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
-        btn_signOut.setEnabled(true);*/
-        /*User addUser = new User(
-                user.getDisplayName().toString(),
-                user.getEmail().toString(),
-                user.getPhotoUrl().toString(),
-                user.getIdToken(false).getResult().getSignInProvider().toString());
+        startActivity(intent);
 
-        FirebaseDatabase.getInstance().getReference("Users")
-                .child(user.getUid())
-                .setValue(addUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(LoginAuthActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                    //startActivity(new Intent(LoginAuthActivity.this, FunctionalActivity.class));
-                }else{
-                    Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });*/
     }
 }

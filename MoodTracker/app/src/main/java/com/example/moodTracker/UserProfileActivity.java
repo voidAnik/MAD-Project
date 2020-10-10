@@ -51,11 +51,11 @@ public class UserProfileActivity extends AppCompatActivity {
         Toast.makeText(this, "On profile", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        /*name = getIntent().getStringExtra("name");
+        name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
         contact = getIntent().getStringExtra("contact");
         provider = getIntent().getStringExtra("provider");
-        photoUrl = getIntent().getData();*/
+        photoUrl = getIntent().getData();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,17 +63,12 @@ public class UserProfileActivity extends AppCompatActivity {
                 if(snapshot.exists()) {
                     User userInfo = snapshot.getValue(User.class);
                     assert userInfo != null;
-                    /*if(et_contact.getEditText().getText().toString().isEmpty()) {
+                    if(et_contact.getEditText().getText().toString().isEmpty()) {
                         et_contact.getEditText().setText(userInfo.Phone.toString());
                     }
                     if(et_dob.getEditText().getText().toString().isEmpty()) {
                         et_dob.getEditText().setText(userInfo.Dob.toString());
-                    }*/
-                    name = userInfo.UserName;
-                    email = userInfo.Email;
-                    contact = userInfo.Phone;
-                    provider = userInfo.Provider;
-                    photoUrl = Uri.parse(userInfo.photoUri);
+                    }
                 }
             }
 
