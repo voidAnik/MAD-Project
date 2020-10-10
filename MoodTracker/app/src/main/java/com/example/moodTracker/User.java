@@ -4,12 +4,12 @@ import android.net.Uri;
 import android.widget.ProgressBar;
 
 public class User {
-    String Dob;
-    String Phone;
-    String UserName;
-    String Email;
-    String photoUri;
-    String Provider;
+    String Dob = null;
+    String Phone = null;
+    String UserName = null;
+    String Email = null;
+    String photoUri = null;
+    String Provider = null;
 
     User(){
 

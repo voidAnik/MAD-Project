@@ -125,10 +125,10 @@ public class LoginAuthActivity extends AppCompatActivity {
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
         btn_signOut.setEnabled(true);*/
         User addUser = new User(
-                user.getDisplayName(),
-                user.getEmail(),
+                user.getDisplayName().toString(),
+                user.getEmail().toString(),
                 user.getPhotoUrl().toString(),
-                user.getIdToken(false).getResult().getSignInProvider());
+                user.getIdToken(false).getResult().getSignInProvider().toString());
 
         FirebaseDatabase.getInstance().getReference("Users")
                 .child(user.getUid())
