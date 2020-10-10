@@ -124,7 +124,7 @@ public class LoginAuthActivity extends AppCompatActivity {
         /*assert user != null;
         Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
         btn_signOut.setEnabled(true);*/
-        User addUser = new User(
+        /*User addUser = new User(
                 user.getDisplayName().toString(),
                 user.getEmail().toString(),
                 user.getPhotoUrl().toString(),
@@ -142,6 +142,6 @@ public class LoginAuthActivity extends AppCompatActivity {
                     Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
     }
 }
