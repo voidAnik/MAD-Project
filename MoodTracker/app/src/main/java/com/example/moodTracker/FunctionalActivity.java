@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FunctionalActivity extends AppCompatActivity {
-    Button btn_profile, btn_queries;
+    Button btn_profile, btn_queries,stress_btn;
     String name, email, contact, provider;
     Uri photoUrl;
     @Override
@@ -33,6 +33,7 @@ public class FunctionalActivity extends AppCompatActivity {
 
         btn_profile = findViewById(R.id.btn_profile);
         btn_queries = findViewById(R.id.btn_queries);
+        stress_btn = findViewById(R.id.stress_btn);
 
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,13 @@ public class FunctionalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FunctionalActivity.this, personality_check_Activity.class));
+            }
+        });
+        stress_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FunctionalActivity.this,Stress_activity.class);
+                startActivity(intent);
             }
         });
     }

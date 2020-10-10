@@ -13,12 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".personality_check_Activity" />
         <activity android:name=".pieActivity"/>
+        <activity android:name=".Stress_activity"></activity>
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".LoginAuthActivity" />
         <activity android:name=".FunctionalActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
