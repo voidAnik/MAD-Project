@@ -47,5 +47,11 @@ public class FunctionalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_queries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FunctionalActivity.this, personality_check_Activity.class));
+            }
+        });
     }
 }

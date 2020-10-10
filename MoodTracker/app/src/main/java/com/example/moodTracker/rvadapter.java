@@ -146,7 +146,7 @@ public class rvadapter extends RecyclerView.Adapter<rvadapter.myviewholder> {
         holder.btn_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCtx.startActivity(new Intent(mCtx,LoginAuthActivity.class));
+                mCtx.startActivity(new Intent(mCtx,personality_check_Activity.class));
             }
         });
 

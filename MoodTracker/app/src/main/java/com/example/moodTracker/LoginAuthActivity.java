@@ -100,6 +100,7 @@ public class LoginAuthActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                Toast.makeText(this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                 assert user != null;
                 updateUI(user);
                 // ...
@@ -121,29 +122,6 @@ public class LoginAuthActivity extends AppCompatActivity {
         intent.putExtra("contact", user.getPhoneNumber().toString());
         intent.setData(user.getPhotoUrl());
         startActivity(intent);
-        /*assert user != null;
-        Toast.makeText(this, ""+user.getDisplayName()+" "+user.getEmail(), Toast.LENGTH_SHORT).show();
-        btn_signOut.setEnabled(true);*/
-        /*User addUser = new User(
-                user.getDisplayName(),
-                user.getEmail(),
-                "",
-                "",
-                user.getPhotoUrl().toString(),
-                user.getIdToken(false).getResult().getSignInProvider());
 
-        FirebaseDatabase.getInstance().getReference("Users")
-                .child(user.getUid())
-                .setValue(addUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(LoginAuthActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                    //startActivity(new Intent(LoginAuthActivity.this, FunctionalActivity.class));
-                }else{
-                    Toast.makeText(LoginAuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });*/
     }
 }
